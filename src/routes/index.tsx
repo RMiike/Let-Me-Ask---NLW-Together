@@ -1,16 +1,20 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { AuthContextProvider } from "../context/AuthContext";
 
 import Home from "../pages/Home";
 import NewRoom from "../pages/NewRoom";
+import Room from "../pages/Room";
 
 const Routes: React.FC = () => {
   return (
     <BrowserRouter>
       <AuthContextProvider>
-        <Route path="/" exact component={Home} />
-        <Route path="/rooms/new" component={NewRoom} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/rooms/new" component={NewRoom} />
+          <Route path="/rooms/:id" component={Room} />
+        </Switch>
       </AuthContextProvider>
     </BrowserRouter>
   );

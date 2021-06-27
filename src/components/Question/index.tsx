@@ -9,10 +9,21 @@ type QuestionProps = {
     avatar: string;
   };
   children?: ReactNode;
+  isHighlighted?: boolean;
+  isAnswered?: boolean;
 };
-const Question: React.FC<QuestionProps> = ({ content, author, children }) => {
+const Question: React.FC<QuestionProps> = ({
+  content,
+  author,
+  children,
+  isHighlighted = false,
+  isAnswered = false,
+}) => {
   return (
-    <Container>
+    <Container
+      className={`${isAnswered ? "answered" : ""} 
+      ${isHighlighted ? "highlighted" : ""}`}
+    >
       <p>{content}</p>
       <footer>
         <UserInfo>

@@ -8,6 +8,14 @@ export const Container = styled.div`
   padding: 24px;
   margin-top: 8px;
 
+  &.highlighted {
+    background: #f4f0ff;
+    border: 1px solid #835af0;
+  }
+  &.answered {
+    background: #dbdcdd;
+    border: 0;
+  }
   p {
     color: #29292e;
   }
@@ -16,6 +24,10 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
+    > div {
+      display: flex;
+      gap: 16px;
+    }
     button {
       border: 0;
       background: transparent;
